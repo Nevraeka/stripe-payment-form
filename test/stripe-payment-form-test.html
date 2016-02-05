@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <!-- <script src="../../test-fixture/test-fixture-mocha.js"></script> -->
+  <script src="../../iron-test-helpers/mock-interactions.js"></script>
+
+  <!-- <link rel="import" href="../../polymer/polymer.html"> -->
+  <!-- <link rel="import" href="../../test-fixture/test-fixture.html"> -->
+  <link rel="import" href="../stripe-payment-form.html">
+
+</head>
+<body>
+
+  <!-- Cases  -->
+
+  <test-fixture id="no-properties">
+    <template>
+      <stripe-payment-form></stripe-payment-form>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="setup_errors">
+    <template>
+      <!-- Add your publishable test key here -->
+      <stripe-payment-form register-controller="/checkout_with_errors" publish-key="pk_test_rs0z1w1ewZOyXpl0E8eWFj5V">
+      </stripe-payment-form>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="setup">
+    <template>
+      <!-- Add your publishable test key here -->
+      <stripe-payment-form register-controller="/checkout" publish-key="pk_test_rs0z1w1ewZOyXpl0E8eWFj5V">
+      </stripe-payment-form>
+    </template>
+  </test-fixture>
+
+
+  <script>
+    suite('<stripe-payment-form>', function() {
+
+      var fxtr, root;
+
+      suite('Stripe API integration', function(){
+
+        setup(function () {
+          fxtr = fixture('setup_errors');
+          root = Polymer.dom(fxtr.root);
+        });
+
+        test('should find the Stripe function', function() {
+            expect(window.Stripe).to.be.a('function');
+        });
+
+        test('registers publishable key with Stripe', function(){
+          sinon.spy(Stripe, "setPublishableKey");
+          expect(fxtr.publishKey).to.be.equal('pk_test_rs0z1w1ewZOyXpl0E8eWFj5V');
+          fxtr.stripe();
+          expect(Stripe.setPublishableKey.calledWith(fxtr.publishKey)).to.be.equal(true);
+        });
+
+        test("should display response errors if the Stripe API request fails", function(){
+          sinon.spy(fxtr, "showError");
+          fxtr.responseHandler(200, { "error" : "You messed it up yo!" });
+          expect(fxtr.showError.calledWith("You messed it up yo!")).to.be.equal(true);
+          expect(root.querySelector('#error').innerHTML).to.be.equal("You messed it up yo!");
+        });
+      });
+
+      suite("#form", function(){
+
+        var submitBtn;
+
+        setup(function(){
+          fxtr = fixture("setup");
+          submitBtn = Polymer.dom(fxtr.root).querySelector('#submit');
+          stripeResponse = {
+            "id"         : "tok_u5dg20Gra",
+             "card"      : {},
+             "created"   : 1454520000,
+             "currency"  : "usd",
+             "livemode"  : true,
+             "object"    : "token",
+             "used"      : false
+          };
+        });
+
+        test('should create a one time token "onsubmit"', function(){
+          // sinon.spy(root.querySelector('iron-ajax'), 'send')
+          // fxtr.send(200, stripeResponse);
+          // expect(root.querySelector('#token').value).to.be.equal("tok_u5dg20Gra");
+        });
+
+        test("should send correct data to the server controller", function(){
+          // sinon.spy(root.querySelector('iron-ajax'), "send");
+          // expect(root.querySelector('iron-ajax').send)
+        });
+
+        suite('can be disabled and enabled', function(){
+
+          test("should be enabled by default", function(){
+            expect(submitBtn.disabled).to.be.equal(false);
+          });
+
+          test("should disable the form", function(){
+            fxtr.disable();
+            expect(submitBtn.disabled).to.be.equal(true);
+          });
+
+          test("should enable the form", function(){
+            fxtr.enable();
+            expect(submitBtn.disabled).to.be.equal(false);
+          });
+
+        });
+
+      });
+
+
+
+    });
+  </script>
+</body>
+</html>
