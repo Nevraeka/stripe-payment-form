@@ -1,4 +1,4 @@
-<script src="https://js.stripe.com/v2/"></script>
+<!-- <script async src="https://js.stripe.com/v2/"></script> -->
 
 <!-- Imports polymer -->
 <link rel="import" href="bower_components/polymer/polymer.html">
@@ -10,7 +10,7 @@
 <dom-module id="stripe-payment-form">
     <template>
       <form id="form">
-              <div id="error"></div>
+              <div id="error" tabindex="0"></div>
               <section>
                   <label class="off_screen" for="email"></label>
                   <input id="email" name="email" type="text" data-stripe="email" placeholder="Enter Email"/>
@@ -43,7 +43,7 @@
 
               <button type="submit" id="submit">Submit Payment</button>
               <input type="hidden" id="token" value="" name="stripeToken" />
-              <iron-ajax id="xhr" 
+              <iron-ajax id="xhr"
                           hidden
                           async
                           on-error="_showError"

@@ -22,6 +22,7 @@ Polymer({
     },
 
     attached: function(){
+      this.loadStripe();
       this.stripe();
     },
 
@@ -30,8 +31,16 @@ Polymer({
         Stripe.setPublishableKey(this.publishKey);
         this.$.form.addEventListener('submit', this.paymentHandler.bind(this), false);
       } else {
-        this.stripe();
+        setTimeout(function(){
+          this.stripe();
+        }.bind(this));
       }
+    },
+
+    loadStripe: function(){
+      var script = document.createElement('script');
+      script.src = "https://js.stripe.com/v2/";
+      document.body.appendChild(script);
     },
 
     disable: function() {

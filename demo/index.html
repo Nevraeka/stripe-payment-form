@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>&lt;payment-stripe&gt; Demo</title>
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
   <link rel="import" href="../stripe-payment-form.html">
   <style>
     body {
@@ -48,6 +48,10 @@
 </head>
 <body>
   <div class="wrapper">
+    <h2>Stripe Payment Form</h2>
+    <code>&lt;stripe-payment-form&gt;&lt;/stripe-payment-form&gt;</code>
+    <stripe-payment-form register-controller="/cc" publish-key="pk_test_rs0z1w1ewZOyXpl0E8eWFj5V"></stripe-payment-form>
+
     <!-- <h2>Clock</h2>
     <code>&lt;flip-clock&gt;&lt;/flip-clock&gt;</code>
     <flip-clock></flip-clock>
