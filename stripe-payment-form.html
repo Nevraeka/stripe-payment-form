@@ -3,6 +3,7 @@
 <!-- Imports polymer -->
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="stylesheet" href="stripe-payment-form.css">
 
@@ -27,10 +28,10 @@
               </section>
 
               <section>
-                  <div flex>
+                  <div class="expiration">
                       <label class="off_screen" for="exp-month">Expiration Month </label>
                       <input type="text" data-stripe="exp-month" id="exp-month" placeholder="MM*"/>
-                      <span> / </span>
+                      <span class="expiration__divider">/</span>
                       <label class="off_screen" for="exp-year">Expiration Year </label>
                       <input type="text" data-stripe="exp-year" id="exp-year" placeholder="YYYY*"/>
                   </div>

@@ -11,7 +11,9 @@
   "main": "stripe-payment-form.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1"
+    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
+    "paper-card": "PolymerElements/paper-card#~1.1.1",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.2.2"
   },
   "devDependencies": {
     "test-fixture": "polymerelements/test-fixture#^1.1.0",
