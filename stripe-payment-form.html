@@ -3,7 +3,6 @@
 <!-- Imports polymer -->
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="stylesheet" href="stripe-payment-form.css">
 
@@ -41,8 +40,9 @@
                   <label class="off_screen" for="coupon">Coupon </label>
                   <input name="coupon" id="coupon" type="text" size="20" data-stripe="coupon" placeholder="Coupon"/>
               </section>
-
-              <button type="submit" id="submit">Submit Payment</button>
+              <section>
+                <button type="submit" id="submit">Submit Payment</button>
+              </section>
               <input type="hidden" id="token" value="" name="stripeToken" />
               <iron-ajax id="xhr"
                           hidden

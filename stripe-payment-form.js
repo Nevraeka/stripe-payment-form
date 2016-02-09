@@ -19,6 +19,7 @@ Polymer({
         type: String,
         value: "pk_test_rs0z1w1ewZOyXpl0E8eWFj5V"
       }
+
     },
 
     attached: function(){
