@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Nevraeka/stripe-payment-form)
+[[![Build Status](https://travis-ci.org/Nevraeka/stripe-payment-form.svg?branch=master)](https://travis-ci.org/Nevraeka/stripe-payment-form)
 
 # &lt;stripe-payment-form&gt;
 
