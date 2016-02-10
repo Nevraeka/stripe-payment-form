@@ -1,12 +1,12 @@
-[![Build Status]()
+[![Build Status](https://travis-ci.org/Nevraeka/stripe-payment-form)
 
 # &lt;stripe-payment-form&gt;
 
-A form for using the [Stripe API]() to receive payments made with [Polymer](http://polymer-project.org)
+A form for using the [Stripe API](https://stripe.com) to receive payments made with [Polymer](http://polymer-project.org)
 
 ## Documentation and Demo
 
-See the [component page](http://Nevraeka.github.io/payment-stripe) for more information.
+See the [component page](http://Nevraeka.github.io/stripe-payment-form) for more information.
 
 ## Screenshot
 
