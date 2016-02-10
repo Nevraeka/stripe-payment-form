@@ -43,6 +43,5 @@
   },
   "_source": "git://github.com/Nevraeka/stripe-payment-form.git",
   "_target": "*",
-  "_originalSource": "stripe-payment-form",
-  "_direct": true
+  "_originalSource": "stripe-payment-form"
 }
