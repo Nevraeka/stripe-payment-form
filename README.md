@@ -10,7 +10,7 @@ See the [component page](http://Nevraeka.github.io/stripe-payment-form) for more
 
 ## Screenshot
 
-<!-- ![Flip Clock](http://i.imgur.com/r5RBxL1.png) -->
+<!-- ![Stripe Payment Form](http://imgur.com/nr4a5Qj) -->
 
 ## Installation
 
