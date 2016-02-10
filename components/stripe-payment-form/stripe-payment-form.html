@@ -1,0 +1,63 @@
+<!-- <script async src="https://js.stripe.com/v2/"></script> -->
+
+<!-- Imports polymer -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<link rel="stylesheet" href="stripe-payment-form.css">
+
+<!-- Defines element markup -->
+<dom-module id="stripe-payment-form">
+    <template>
+      <form id="form">
+              <div id="error" tabindex="0"></div>
+              <section>
+                  <label class="off_screen" for="email"></label>
+                  <input id="email" name="email" type="text" data-stripe="email" placeholder="Enter Email"/>
+              </section>
+
+              <section>
+                  <label class="off_screen" for="number">Card Number </label>
+                  <input id="number" type="text" data-stripe="number" placeholder="Enter Card Number"/>
+              </section>
+
+              <section>
+                  <label class="off_screen" for="cvc">CVC </label>
+                  <input id="cvc" type="text" data-stripe="cvc" placeholder="Enter CVC" />
+              </section>
+
+              <section>
+                  <div class="expiration">
+                      <label class="off_screen" for="exp-month">Expiration Month </label>
+                      <input type="text" data-stripe="exp-month" id="exp-month" placeholder="MM*"/>
+                      <span class="expiration__divider">/</span>
+                      <label class="off_screen" for="exp-year">Expiration Year </label>
+                      <input type="text" data-stripe="exp-year" id="exp-year" placeholder="YYYY*"/>
+                  </div>
+              </section>
+
+              <section>
+                  <label class="off_screen" for="coupon">Coupon </label>
+                  <input name="coupon" id="coupon" type="text" size="20" data-stripe="coupon" placeholder="Coupon"/>
+              </section>
+              <section>
+                <button type="submit" id="submit">Submit Payment</button>
+              </section>
+              <input type="hidden" id="token" value="" name="stripeToken" />
+              <iron-ajax id="xhr"
+                          hidden
+                          async
+                          on-error="_showError"
+                          handles-as="json"
+                          method="POST"
+                          auto="true"
+                          content-type="application/json"
+                          debounce-duration="300">
+              </iron-ajax>
+          </form>
+
+    </template>
+</dom-module>
+
+<!-- Registers custom element -->
+<script src="stripe-payment-form.js"></script>
