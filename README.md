@@ -10,7 +10,7 @@ See the [component page](http://Nevraeka.github.io/stripe-payment-form) for more
 
 ## Screenshot
 
-[Stripe Payment Form](http://i.imgur.com/nr4a5Qj.png)
+![Stripe Payment Form](http://i.imgur.com/nr4a5Qj.png)
 
 ## Installation
 
