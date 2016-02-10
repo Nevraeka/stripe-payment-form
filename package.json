@@ -33,5 +33,10 @@
     "morgan": "^1.6.1",
     "multer": "^1.1.0",
     "stripe": "^4.4.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.26.5",
+    "gh-pages": "^0.9.0",
+    "node-fs-extra": "^0.8.1"
   }
 }
