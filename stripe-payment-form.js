@@ -47,6 +47,7 @@ Polymer({
     _send: function(status, response){
       var xhr = this.$.xhr;
       if(status == 200){
+        this.enable();
         this.$.token.value = response.id;
         xhr.body = this._encodedRegisterData();
         xhr.url  = this.registerController;
@@ -59,13 +60,14 @@ Polymer({
 
     _responseHandler: function(status, response) {
       if(response.error){
-        return this.showError(response.error);
+        return this.showError(response.error.message);
       }
       this._send(status, response);
       this.fire('paymentProcessed', { response: response, status: status, data: this._registerData() });
     },
 
-    _paymentHandler: function(){
+    _paymentHandler: function(evt){
+      evt.preventDefault();
       this.disable();
       Stripe.card.createToken(this.$.form, this._responseHandler.bind(this));
       return false;
