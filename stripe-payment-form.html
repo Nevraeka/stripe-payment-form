@@ -5,6 +5,24 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <link rel="stylesheet" href="stripe-payment-form.css">
+<!--
+  The `stripe-payment-form` element exposes the Stripe payment API (v2) with a
+  simple form for collecting payments.
+      <stripe-payment-form
+          register-controller="/serverside/stripe/controller"
+          coupons="wct,w3c"
+          mode="test"
+          validate-fields="true"
+          publish-key="WEe3d-a-WBJKJHBHb"></stripe-payment-form>
+  With `auto` set to `true`, the element performs a request whenever
+  its `url`, `params` or `body` properties are changed. Automatically generated
+  requests will be debounced in the case that multiple attributes are changed
+  sequentially.
+  Note: You need an active Stripe account as well as a server end point to handle
+  the hand off to Stripe in order to get valid responses. Additionally you 
+  @demo demo/index.html
+  @hero hero.svg
+-->
 
 <!-- Defines element markup -->
 <dom-module id="stripe-payment-form">
