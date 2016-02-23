@@ -2,7 +2,7 @@
 
 # &lt;stripe-payment-form&gt;
 
-A form for using the [Stripe API](https://stripe.com) to receive payments made with [Polymer](http://polymer-project.org)
+A form for using the [Stripe API](https://stripe.com) to receive payments. Made with [Polymer](http://polymer-project.org)
 
 ## Documentation and Demo
 
